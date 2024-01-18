@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Módulo Gestor de Fila</title>
+</head>
+<body>
+    <div  class="cont">
+    <div class="fila-container">
+        <H1>Gestor das Filas</H1>
+        <div class="fila">
+            <p class="texto-pequeno">A</p>
+            <div class="numero-container">
+                <span class="numero">1</span>
+            </div>
+            <button class="btn-incremento">+</button>
+            <button class="btn-decremento">-</button>
+        </div>
+        <div class="fila">
+            <p class="texto-pequeno">B</p>
+            <div class="numero-container">
+                <span class="numero">1</span>
+            </div>
+            <button class="btn-incremento">+</button>
+            <button class="btn-decremento">-</button>
+        </div>
+        <div class="fila">
+            <p class="texto-pequeno">C</p>
+            <div class="numero-container">
+                <span class="numero">1</span>
+            </div>
+            <button class="btn-incremento">+</button>
+            <button class="btn-decremento">-</button>
+        </div>
+    </div>
+</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const filas = document.querySelectorAll('.fila');
+
+    filas.forEach(function(fila, index) {
+        const btnDecremento = fila.querySelector('.btn-decremento');
+        const btnIncremento = fila.querySelector('.btn-incremento');
+        const numeroSpan = fila.querySelector('.numero');
+
+        btnDecremento.addEventListener('click', function() {
+            decrementarNumero(numeroSpan);
+        });
+
+        btnIncremento.addEventListener('click', function() {
+            incrementarNumero(numeroSpan);
+        });
+    });
+
+    function decrementarNumero(elementoNumero) {
+        let numeroAtual = parseInt(elementoNumero.textContent);
+        if (numeroAtual > 1) {
+            numeroAtual--;
+        } else {
+            numeroAtual = 99; // Reiniciar para 99 quando chegar a 1
+        }
+        elementoNumero.textContent = numeroAtual;
+    }
+
+    function incrementarNumero(elementoNumero) {
+        let numeroAtual = parseInt(elementoNumero.textContent);
+        if (numeroAtual < 99) {
+            numeroAtual++;
+        } else {
+            numeroAtual = 1; // Reiniciar para 1 quando chegar a 99
+        }
+        elementoNumero.textContent = numeroAtual;
+    }
+});
+    </script>
+</body>
+</html>
