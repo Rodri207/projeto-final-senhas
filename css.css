@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Cor de fundo */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.dispenser-container {
+    background-color: #ffffff; /* Cor do container */
+    border: 10px solid #ddd; /* Contorno do container */
+    border-radius: 10px; /* Borda arredondada */
+    overflow: hidden; /* Para esconder cantos arredondados do contorno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    width: 400px; /* Largura ajustada */
+    height: 500px; /* Altura ajustada */
+}
+
+.dispenser-module {
+    text-align: center;
+    padding: 40px; /* Aumento do preenchimento para mais espaço interno */
+}
+
+.ticket-display {
+    background-color: #ff33cc; /* Cor de destaque para a área do display */
+    padding: 10px; /* Ajuste do preenchimento interno */
+    border-radius: 8px; /* Borda arredondada para a área do display */
+    margin-bottom: 20px;
+}
+
+.ticket-display p {
+    margin: 20px; /* Ajuste da margem interna */
+    color: #ffffff; /* Cor do texto no display */
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Ajuste da margem superior */
+}
+
+.dispenser-button {
+    width: 70px; /* Aumento da largura */
+    height: 70px; /* Aumento da altura */
+    border-radius: 8px; /* Borda arredondada para os botões */
+    background-color: #ffffff; /* Cor branca dos botões */
+    color: #000000; /* Cor do texto nos botões */
+    font-size: 16px;
+    border: 2px solid #ff33cc; /* Contorno dos botões */
+    cursor: pointer;
+}
+
+.dispenser-button:hover {
+    background-color: #c23fa1; /* Cor de destaque ao passar o mouse */
+    color: #ffffff; /* Cor do texto ao passar o mouse */
+}
+
+
+/* Adicione este trecho ao seu arquivo css.css */
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-info {
+    margin-top: 5px;
+    font-size: 17px;
+    color: #888;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Módulo Dispensador de Senhas</title>
+</head>
+<body>
+    <div class="dispenser-container">
+        <div class="dispenser-module">
+            <div class="ticket-display">
+                <h2><p>Retire a sua senha</p></h2>
+                <p>1 SENHA PARA CADA CLIENTE</p>
+            </div>
+            <div class="button-row">
+                <div class="button-container">
+                    <button class="dispenser-button" id="btnA" onclick="buttonClicked('A')">A</button>
+                    <div class="button-info" id="buttonInfoA">Nº Senha</div>
+                </div>
+                <div class="button-container">
+                    <button class="dispenser-button" id="btnB" onclick="buttonClicked('B')">B</button>
+                    <div class="button-info" id="buttonInfoB">Nº Senha</div>
+                </div>
+                <div class="button-container">
+                    <button class="dispenser-button" id="btnC" onclick="buttonClicked('C')">C</button>
+                    <div class="button-info" id="buttonInfoC">Nº Senha</div>
+                </div>
+                <div class="button-container">
+                    <button class="dispenser-button" id="btnD" onclick="buttonClicked('D')">D</button>
+                    <div class="button-info" id="buttonInfoD">Nº Senha</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
