@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de redes</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            height: 50px;
+            background-color: #ff33cc;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        main {
+            height: 80vh;
+        }
+
+        .senha {
+            display: flex;
+            width: 100%-1;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 25px;
+            color: #ff33cc;
+            text-align: center;
+            justify-content: center;
+            padding: 40px;
+            margin: 2px;
+            margin-top: 20px;
+            border: 2px solid #ff33cc;
+        }
+
+        #senha1,
+        #senha2,
+        #senha3 {
+            margin-left: 40px;
+            padding: 2px;
+            background-color: #ff33cc;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Visualização de senhas</h1>
+    </header>
+    <main>
+        <div class="senha">
+            <h2>Charcutaria</h2>
+            <h2 id="senha1">C000</h2>
+        </div>
+
+        <div class="senha">
+            <h2>Padaria</h2>
+            <h2 id="senha2">P000</h2>
+        </div>
+
+        <div class="senha">
+            <h2>Peixaria</h2>
+            <h2 id="senha3">PE000</h2>
+        </div>
+    </main>
+    <script>
+        const vSenha1 = document.querySelector("#senha1");
+        const vSenha2 = document.querySelector("#senha2");
+        const vSenha3 = document.querySelector("#senha3");
+        let senhaCharcutaria = parseInt(localStorage.getItem('senhaCharcutaria')) || 0;
+        let senhaPadaria = parseInt(localStorage.getItem('senhaPadaria')) || 0;
+        let senhaPeixaria = parseInt(localStorage.getItem('senhaPeixaria')) || 0;
+        let ultSenha = localStorage.getItem('ultSenha') || 'C';
+        var audio = new Audio('beep.wav')
+
+        mostrarSenha();
+
+        window.addEventListener('keydown', function (e) {
+            if (e.key == 'q' || e.key == 'Q') {
+                senhaCharcutaria++;
+                ultSenha = 'C';
+                audio.play();
+            } else if (e.key == 'w' || e.key == 'W') {
+                senhaPadaria++;
+                ultSenha = 'P';
+                audio.play();
+            } else if (e.key == 'e' || e.key == 'E') {
+                senhaPeixaria++;
+                ultSenha = 'PE';
+                audio.play();
+            } else if (e.key == 'r' || e.key == 'R') {
+                senhaCharcutaria = 0;
+                senhaPadaria = 0;
+                senhaPeixaria = 0;
+                ultSenha = 'C';
+                location.reload();
+            }
+
+            localStorage.setItem('senhaCharcutaria', senhaCharcutaria);
+            localStorage.setItem('senhaPadaria', senhaPadaria);
+            localStorage.setItem('senhaPeixaria', senhaPeixaria);
+            localStorage.setItem('ultSenha', ultSenha);
+            mostrarSenha();
+        });
+
+        function mostrarSenha() {
+            vSenha1.innerHTML = 'C' + senhaCharcutaria.toString().padStart(3, '0');
+            vSenha2.innerHTML = 'P' + senhaPadaria.toString().padStart(3, '0');
+            vSenha3.innerHTML = 'PE' + senhaPeixaria.toString().padStart(3, '0');
+        }
+    </script>
+</body>
+</html>
