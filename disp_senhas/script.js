@@ -15,7 +15,7 @@ function buttonClicked(buttonId) {
     var currentDate = new Date();
     var formattedDate = currentDate.toLocaleString();
 
-    buttonInfo.innerHTML = `Nº Senha ${currentCount} - ${formattedDate}`;
+    buttonInfo.innerHTML = `Senha Nº ${currentCount} - ${formattedDate}`;
 
     // Atualizar a data e hora fixada na parte inferior
     var dateInfo = document.getElementById('dateInfo');
@@ -23,5 +23,5 @@ function buttonClicked(buttonId) {
 
     // Adicionar o texto da senha clicada abaixo de tudo
     var resultInfo = document.getElementById('resultInfo');
-    resultInfo.innerHTML = `Senha Clicada: Nº ${currentCount} - ${formattedDate}`;
+    resultInfo.innerHTML = `Senha: Nº ${currentCount} - ${formattedDate}`;
 }
