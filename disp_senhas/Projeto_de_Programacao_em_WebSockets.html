@@ -8,9 +8,8 @@
 </head>
 <body>
     <script>
-        sendMessage();
+        //sendMessage();
         let socket = new WebSocket("ws://192.168.0.179:8080");
-    function sendMessage(){
         socket.onopen = function (event){
             console.log("Conexão com servidor aberta: ")
         }
@@ -20,7 +19,12 @@
         socket.onclose = function(event){
             console.log("Conexão com servidor fechada: ",event)
         }
-    }
+        
+        function buttonClicked(fila){
+
+            $mensagem =JSON.stringify({"comando":"novaSenha", "fila":fila});
+            socket.send($mensagem);
+        }
     </script>
     <div class="dispenser-container">
         <div class="dispenser-module">
@@ -30,21 +34,24 @@
             </div>
             <div class="button-row">
                 <div class="button-container">
-                    <button class="dispenser-button" id="btnA" onclick="buttonClicked('A')">A</button>
+                    <button class="dispenser-button" id="btnA" onclick="buttonClicked('1')">A</button>
                     <div class="button-info" id="buttonInfoA">Senha Nº</div>
                 </div>
                 <div class="button-container">
-                    <button class="dispenser-button" id="btnB" onclick="buttonClicked('B')">B</button>
+                    <button class="dispenser-button" id="btnB" onclick="buttonClicked('2')">B</button>
                     <div class="button-info" id="buttonInfoB">Senha Nº</div>
                 </div>
                 <div class="button-container">
-                    <button class="dispenser-button" id="btnC" onclick="buttonClicked('C')">C</button>
+                    <button class="dispenser-button" id="btnC" onclick="buttonClicked('3')">C</button>
                     <div class="button-info" id="buttonInfoC">Senha Nº</div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+
+
+    </script>
    
 </body>
 </html>
