@@ -7,6 +7,21 @@
     <title>Módulo Dispensador de Senhas</title>
 </head>
 <body>
+    <script>
+        sendMessage();
+        let socket = new WebSocket("ws://192.168.0.179:8080");
+    function sendMessage(){
+        socket.onopen = function (event){
+            console.log("Conexão com servidor aberta: ")
+        }
+        socket.onerror = function (error){
+            console.error("Erro na conexão: ",error)
+        }
+        socket.onclose = function(event){
+            console.log("Conexão com servidor fechada: ",event)
+        }
+    }
+    </script>
     <div class="dispenser-container">
         <div class="dispenser-module">
             <div class="ticket-display">
@@ -26,13 +41,10 @@
                     <button class="dispenser-button" id="btnC" onclick="buttonClicked('C')">C</button>
                     <div class="button-info" id="buttonInfoC">Nº Senha</div>
                 </div>
-                <div class="button-container">
-                    <button class="dispenser-button" id="btnD" onclick="buttonClicked('D')">D</button>
-                    <div class="button-info" id="buttonInfoD">Nº Senha</div>
-                </div>
             </div>
         </div>
     </div>
     <script src="script.js"></script>
+   
 </body>
 </html>

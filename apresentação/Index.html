@@ -79,6 +79,24 @@
         var audio = new Audio('beep.wav')
 
         mostrarSenha();
+        sendMessage();
+
+        let ws = new WebSocket('ws://192.168.0.179:8080');
+
+        function sendMessage() {
+            
+            ws.onopen = function (event) {
+                console.log('Conexão aberta');
+            };
+
+            ws.onerror = function (error) {
+                console.error('Erro na conexão:', error);
+            };  
+
+            ws.onclose = function (event) {
+                console.log('Conexão fechada:', event);
+            };
+        }
 
         window.addEventListener('keydown', function (e) {
             if (e.key == 'q' || e.key == 'Q') {
