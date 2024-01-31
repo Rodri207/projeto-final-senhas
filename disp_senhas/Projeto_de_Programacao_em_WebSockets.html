@@ -20,10 +20,23 @@
             console.log("Conexão com servidor fechada: ",event)
         }
         
+        socket.onmessage = function (receber){
+            $mensagem = JSON.parse(receber);
+
+            var comando = document.getElementById('resultInfo');
+            comando.innerHTML = `Senha: Nº ${currentCount} - ${formattedDate}`;
+            $mensagem.comando
+
+            var fila= document.getElementById('dateInfo');
+            fila.innerHTML = `Data/Hora do Último Clique: ${formattedDate}`;
+            $mensagem.fila
+
+        }
         function buttonClicked(fila){
 
             $mensagem =JSON.stringify({"comando":"novaSenha", "fila":fila});
             socket.send($mensagem);
+            
         }
     </script>
     <div class="dispenser-container">
@@ -34,15 +47,15 @@
             </div>
             <div class="button-row">
                 <div class="button-container">
-                    <button class="dispenser-button" id="btnA" onclick="buttonClicked('1')">A</button>
+                    <button class="dispenser-button" id="btnA" onclick="buttonClicked('A')">A</button>
                     <div class="button-info" id="buttonInfoA">Senha Nº</div>
                 </div>
                 <div class="button-container">
-                    <button class="dispenser-button" id="btnB" onclick="buttonClicked('2')">B</button>
+                    <button class="dispenser-button" id="btnB" onclick="buttonClicked('B')">B</button>
                     <div class="button-info" id="buttonInfoB">Senha Nº</div>
                 </div>
                 <div class="button-container">
-                    <button class="dispenser-button" id="btnC" onclick="buttonClicked('3')">C</button>
+                    <button class="dispenser-button" id="btnC" onclick="buttonClicked('C')">C</button>
                     <div class="button-info" id="buttonInfoC">Senha Nº</div>
                 </div>
             </div>
