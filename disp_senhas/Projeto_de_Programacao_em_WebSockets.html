@@ -21,16 +21,8 @@
         }
         
         socket.onmessage = function (receber){
-            $mensagem = JSON.parse(receber);
-
-            var comando = document.getElementById('resultInfo');
-            comando.innerHTML = `Senha: Nº ${currentCount} - ${formattedDate}`;
-            $mensagem.comando
-
-            var fila= document.getElementById('dateInfo');
-            fila.innerHTML = `Data/Hora do Último Clique: ${formattedDate}`;
-            $mensagem.fila
-
+            receber=JSON.parse(receber.data);
+            
         }
         function buttonClicked(fila){
 
@@ -38,6 +30,7 @@
             socket.send($mensagem);
             
         }
+
     </script>
     <div class="dispenser-container">
         <div class="dispenser-module">
