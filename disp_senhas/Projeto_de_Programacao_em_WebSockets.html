@@ -8,7 +8,6 @@
 </head>
 <body>
     <script>
-        //sendMessage();
         let socket = new WebSocket("ws://192.168.0.179:8080");
         socket.onopen = function (event){
             console.log("Conexão com servidor aberta: ")
@@ -20,18 +19,17 @@
             console.log("Conexão com servidor fechada: ",event)
         }
         
-        socket.onmessage = function (receber){
-            receber=JSON.parse(receber.data);
-            
+        socket.onmessage = function (event) {
+            let receber = JSON.parse(event.data);
+            document.getElementById('mensagemDoServidor').innerText = receber.mensagem;
         }
+        
         function buttonClicked(fila){
-
-            $mensagem =JSON.stringify({"comando":"novaSenha", "fila":fila});
-            socket.send($mensagem);
-            
+            let mensagem = JSON.stringify({"comando":"novaSenha", "fila":fila});
+            socket.send(mensagem);
         }
-
     </script>
+
     <div class="dispenser-container">
         <div class="dispenser-module">
             <div class="ticket-display">
@@ -54,10 +52,8 @@
             </div>
         </div>
     </div>
-    <script>
 
+    <div id="mensagemDoServidor"></div>
 
-    </script>
-   
 </body>
 </html>
